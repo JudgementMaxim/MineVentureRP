@@ -16,10 +16,4 @@ public class TestSystem implements Listener{
         Bukkit.getLogger().info("[MineVentureRP] TestSystem loaded.");
     }
 
-    @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event){
-        event.getPlayer().sendMessage("§aWelcome to MineVentureRP! (TestSystem Active)");
-    }
-
-
 }
