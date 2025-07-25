@@ -1,0 +1,7 @@
+name: MineVentureRP
+version: '1.0-SNAPSHOT'
+main: org.JudgementM.mineVentureRP.MineVentureRP
+api-version: '1.21'
+load: STARTUP
+authors: [ JudgementMaxim ]
+description: "MineVenture is a comprehensive, custom-built Minecraft plugin system that combines deep roleplay, economy, trade, and immersive gameplay mechanics on a meticulously recreated Earth map. It features: A unique job system with tiered permissions for tools and actions, block-based town claiming with upkeep and Dynmap integration, multiplayer-controlled ships for up to 10 players with crew roles and realistic sailing, a vibrant economy with resource respawning, trade, and specialized cities, custom weapons and armor with unique stats for true RPG experience, compatibility with vanilla and modded environments, plus extensible architecture."
