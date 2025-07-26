@@ -6,6 +6,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.entity.Player;
 import org.JudgementM.mineVentureRP.SideBarDisplaySystem.SideBarDisplay;
 import org.JudgementM.mineVentureRP.database.PlayerDataDAO;
+import org.JudgementM.mineVentureRP.gui.JobSelectionGUI;
 
 import java.sql.SQLException;
 
@@ -28,6 +29,7 @@ public class PlayerJoinListener implements Listener {
                 SideBarDisplay.showSidebar(player, data.getJob(), data.getTown(), data.getCoins());
             } else {
                 SideBarDisplay.showSidebar(player, "Kein Job", "Keine Stadt", 0);
+                JobSelectionGUI.open(player);
             }
         } catch (SQLException e) {
             e.printStackTrace();
