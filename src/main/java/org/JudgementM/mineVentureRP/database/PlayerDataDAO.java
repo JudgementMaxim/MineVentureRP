@@ -48,13 +48,12 @@ public class PlayerDataDAO {
                     int coins = rs.getInt("coins");
                     return new PlayerData(uuid, job, town, coins);
                 } else {
-                    return null; // kein Eintrag gefunden
+                    return null;
                 }
             }
         }
     }
 
-    // Klasse zur Datenhaltung
     public static class PlayerData {
         private final UUID uuid;
         private final String job;
@@ -68,20 +67,9 @@ public class PlayerDataDAO {
             this.coins = coins;
         }
 
-        public UUID getUuid() {
-            return uuid;
-        }
-
-        public String getJob() {
-            return job;
-        }
-
-        public String getTown() {
-            return town;
-        }
-
-        public int getCoins() {
-            return coins;
-        }
+        public UUID getUuid() { return uuid; }
+        public String getJob() { return job; }
+        public String getTown() { return town; }
+        public int getCoins() { return coins; }
     }
 }

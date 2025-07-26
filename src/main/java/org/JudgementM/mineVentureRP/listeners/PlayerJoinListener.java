@@ -5,15 +5,33 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.entity.Player;
 import org.JudgementM.mineVentureRP.SideBarDisplaySystem.SideBarDisplay;
-public class PlayerJoinListener implements Listener{
+import org.JudgementM.mineVentureRP.database.PlayerDataDAO;
+
+import java.sql.SQLException;
+
+public class PlayerJoinListener implements Listener {
+
+    private final PlayerDataDAO dao;
+
+    public PlayerJoinListener(PlayerDataDAO dao) {
+        this.dao = dao;
+    }
+
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
 
-        String job = "Farmer";
-        String town = "Neustadt";
-        int coins = 100;
+        try {
+            PlayerDataDAO.PlayerData data = dao.getPlayerData(player.getUniqueId());
 
-        SideBarDisplay.showSidebar(player, job, town, coins);
+            if (data != null) {
+                SideBarDisplay.showSidebar(player, data.getJob(), data.getTown(), data.getCoins());
+            } else {
+                SideBarDisplay.showSidebar(player, "Kein Job", "Keine Stadt", 0);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            SideBarDisplay.showSidebar(player, "Fehler", "Fehler", 0);
+        }
     }
 }
